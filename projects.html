@@ -19,30 +19,29 @@
     <main>
         <section class="info">
             <article>
-            <h2>Deep learning based encoder proxy</h2>
+            <h2>Deep learning based encoder proxy [<a href="https://github.com/PedramMohammadi/encoder_proxy_intra" target="_blank">GitHub</a>]</h2>
             <ul>
                 <li>
                 <img src="14.png" class="project-image" alt="Diagram of the encoder proxy neural network">
-                This work is one piece of a larger research effort to improve BD-rate <a href="https://github.com/Netflix/vmaf" target="_blank">VMAF</a> of a video encoder using deep learning. 
+                This work is one piece of a larger research effort to improve the <a href="https://github.com/Netflix/vmaf" target="_blank">VMAF</a> score between the input and output of a video encoder by means of 
+                deep learning based pre-processing algorithms. 
                 The full system has three learned components: a frame pre-processor, an encoder proxy (this project), and a VMAF proxy. The pre-processor 
                 will ultimately be trained to make frames “easier to compress” without hurting perceptual quality. To achieve this, I first need a fast, accurate, differentiable proxy for the 
                 real video encoder. To keep the problem tractable and avoid motion/GOP dependencies, I focuse on all intra (I frame only) encoding where each frame is compressed independently, with no 
-                inter-frame prediction. This gives clean, per-frame supervision and much faster iteration, while still capturing the core rate–distortion behavior I care about. Given a reference frame and a target
-                <a href="https://slhck.info/video/2017/02/24/crf-guide.html" target="_blank">CRF</a> value, the network predicts the encoder’s reconstructed frame and its file size.
+                inter-frame prediction. This gives clean, per-frame supervision and much faster iteration, while still capturing the core reconstruction behavior I care about. Given a reference frame and a target
+                <a href="https://slhck.info/video/2017/02/24/crf-guide.html" target="_blank">CRF</a> value, the network predicts the encoder’s reconstructed frame.
                 In other words, it learns the encoder’s rate–distortion response in all-intra mode. The model first turns the input frame into compact features, then uses the input quantization parameter to 
-                gently scale those features so they reflect how a real encoder behaves at that setting. From those tuned features, it estimates how many bits would be spent and reconstructs what the encoded 
-                frame would look like. The loss function balances three terms: reconstruction to the distorted target (MSE), a log-domain rate term , and a classic
-                rate–distortion Lagrangian.
+                gently scale those features so they reflect how a real encoder behaves at that setting. From those tuned features, the model reconstructs what the encoded frame would look like.
                 </li>
             </ul>
             </article>
             <article>
-            <h2>Deep-Learning based VMAF proxy</h2>
+            <h2>Deep-Learning based VMAF proxy [<a href="https://github.com/PedramMohammadi/vmaf_proxy" target="_blank">GitHub</a>]</h2>
             <ul>
                 <li>
                 <img src="15.png" class="project-image" alt="Diagram of the VMAF proxy 3D-CNN comparing reference and distorted frames">
                 In this work I developed a model that predicts the perceived quality of a video clips by predicting its VMAF score. This model, along with the encooder proxy model are two parts of a bigger 
-                project that aims to improve BD-rate VMAF of a video encoder. The input is a stack of <em>N</em> consecutive grayscale frames from the reference and from the distorted stream.
+                project that aims to improve the VMAF score of the output of a video encoder. The input is a stack of <em>N</em> consecutive grayscale frames from the reference and from the distorted stream.
                 The output is one scalar that represents the predicted VMAF. Multiple 3D convolution blocks process the clip over time and space. This produces a compact set of video features for both reference and distorted inputs. 
                 A tiny attention module can re-weight moments in the clip so the network focuses on frames that matter more to perceived quality. Features are then averaged over time and space, then a small fully connected head 
                 maps them to a single predicted quality score.
