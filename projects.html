@@ -19,6 +19,20 @@
     <main>
         <section class="info">
             <article>
+            <h2>Learned Pre-Processing for Perceptual Quality Optimization [<a href="https://github.com/PedramMohammadi/filter_proxy" target="_blank">GitHub</a>]</h2>
+            <ul>
+                <li>
+                In this project, I developed a deep learning system that optimizes input data before processing to significantly improve perceptual quality metrics. The approach uses a U-Net architecture with a 
+                Detail Compensation Module (DCM) trained end-to-end using differentiable proxy models—a quality metric estimator and a processing pipeline simulator—enabling gradient-based optimization of 
+                traditionally non-differentiable systems. This methodology allows neural networks to learn optimal input transformations by backpropagating through proxy representations of complex processing chains, 
+                opening applications in compression, transmission, enhancement, and other quality-sensitive pipelines. Evaluation on 183,660 test samples shows a mean improvement of 21.2 VMAF quality points. 
+                The model achieves a 99.99% success rate with only 0.01% degradation cases, validating the proxy-based training methodology. These results translate to practical efficiency gains of 30-40% at equivalent perceptual 
+                quality. The framework is pipeline-agnostic and can be adapted to various domains including video compression, image transmission, medical imaging preprocessing, and neural network input optimization, 
+                demonstrating the broad applicability of differentiable proxy-based learning for optimizing non-differentiable systems.
+                </li>
+            </ul>
+            </article>
+            <article>
             <h2>Deep learning based encoder proxy [<a href="https://github.com/PedramMohammadi/encoder_proxy_intra" target="_blank">GitHub</a>]</h2>
             <ul>
                 <li>
