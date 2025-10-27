@@ -19,6 +19,20 @@
     <main>
         <section class="info">
             <article>
+            <h2>Task-Aware Low-Light Enhancement for Robotics [<a href="https://github.com/PedramMohammadi/bamr-lowlight-robotics" target="_blank">GitHub</a>]</h2>
+            <ul>
+                <li>
+                <img src="16.png" class="project-image" alt="Diagram of the encoder proxy neural network">
+                In this project, I developed an algorithm to improve robotic perception under challenging low-light conditions. Traditional image enhancers focus on visual metrics like PSNR or SSIM, 
+                but this work is task-aware — it learns to optimize what matters for robots: feature matching and object detection. The system combines a lightweight CNN architecture with a two-stage training 
+                strategy: (1) paired pretraining on LOL-Blur and LOL-v2 (Real) to learn natural enhancement, and (2) task-aware fine-tuning using ExDark and MID datasets to directly improve LoFTR keypoint matching 
+                and YOLO detection performance. Trained efficiently on Colab with mixed precision (AMP), this work achieves tangible downstream gains — increasing LoFTR inliers by over 80% and improving YOLO mAP@0.5 
+                from 0.582 → 0.644 after adaptation. The project demonstrates how perceptual enhancement can be re-framed as a robotics performance optimization problem, bridging low-level image quality with 
+                high-level visual understanding.
+                </li>
+            </ul>
+            </article>
+            <article>
             <h2>Learned Pre-Processing for Perceptual Quality Optimization [<a href="https://github.com/PedramMohammadi/filter_proxy" target="_blank">GitHub</a>]</h2>
             <ul>
                 <li>
