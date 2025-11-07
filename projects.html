@@ -33,6 +33,17 @@
             </ul>
             </article>
             <article>
+            <h2>HDR Pre-processing for Visual Odometry [<a href="https://github.com/PedramMohammadi/ContrastRobust-VO" target="_blank">GitHub</a>]</h2>
+            <ul>
+                <li>
+                I developed a lightweight HDR pre-processing stage that converts SDR input to HDR format and converts the HDR back to SDR using a piecewise curve to preserve highlight and shadow detail, 
+                improving the robustness of ORB-SLAM3 under extreme contrast. I also evaluated on EuRoC MAV and TUM RGB-D using APE (Sim3, translation) and RPE (Δ=5 frames). The proposed method achieved consistent 
+                improvements over the baseline. Pooled results across datasets: APE −8.8%, RPE −6.2%; on TUM specifically: APE −10.6% with a 77% win-rate, and RPE −12.3%. Classical baselines 
+                were included for comparison, and all experiments were fully reproducible via Docker/Conda scripts with fixed VO configurations and timestamps.
+                </li>
+            </ul>
+            </article>
+            <article>
             <h2>Learned Pre-Processing for Perceptual Quality Optimization [<a href="https://github.com/PedramMohammadi/filter_proxy" target="_blank">GitHub</a>]</h2>
             <ul>
                 <li>
